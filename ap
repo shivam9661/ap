@@ -1,0 +1,587 @@
+Yashwanth number
+#include<stdio.h>                   
+int main()
+{
+int original,num,sum=0;
+printf("Enter the number\n");
+scanf("%d",&num);
+printf("The entered number is:%d\n",num);
+original=num;
+while(num>0)
+{
+int fact=1,a;
+a=num%10;
+while(a>0)
+{
+fact=fact*a;
+a--;
+}
+sum=sum+fact;
+num=num/10;
+}
+printf("%d\n",sum);
+if(original==sum)
+{
+printf("YES");
+}
+else
+{
+printf("NO");
+}
+return 0;
+}
+
+
+2.seat
+#include<stdio.h>
+int main()
+{
+int num,a,d;
+char ch[2];
+printf("Enter your seat number");
+scanf("%d",&num);
+d=num%8;
+if(d==0)
+{
+a=num-1;
+ch[0]='S';
+ch[1]='L';
+}
+else if(d==1)
+{
+a=num+3;
+ch[0]='L';
+ch[1]='B';
+}
+else if(d==2)
+{
+a=num+3;
+ch[0]='M';
+ch[1]='B';
+}
+else if(d==2)
+{
+a=num+3;
+ch[0]='M';
+ch[1]='B';
+}
+else if(d==3)
+{
+a=num+3;
+ch[0]='U';
+ch[1]='B';
+}
+else if(d==4)
+{
+a=num-3;
+ch[0]='L';
+ch[1]='B';
+}
+else if(d==5)
+{
+a=num-3;
+ch[0]='M';
+ch[1]='B';
+}
+else if(d==6)
+{
+a=num-3;
+ch[0]='U';
+ch[1]='B';
+}
+else if(d==7)
+{
+a=num+1;
+ch[0]='S';
+ch[1]='U';
+}
+printf("Your partner number is:%d %s",a,ch);
+return 0;
+}
+
+
+
+3. #include<stdio.h>
+int main()
+{
+int a[100];
+int n,i,c=0,b=0;
+printf("Enter the number of elements\n");
+scanf("%d",&n);
+printf("Enter the elements\n");
+for(i=0;i<n;i++)
+{
+scanf("%d\n",&a[i]);
+}
+for(i=0;i<n;i++)
+{
+if(a[i]==0)
+{
+c++;
+}
+else
+{
+b++;
+}
+}
+for(i=0;i<c;i++)
+{
+printf("0\t");
+}
+for(i=0;i<b;i++)
+{
+printf("1\t");
+}
+return 0;
+}
+
+
+
+
+4. #include<stdio.h>
+#include<math.h>
+int main()
+{
+int a;
+printf("Enter the number:\n");
+scanf("%d",&a);
+while(a>0)
+{
+int last=a%10;
+printf("%.2f\t",sqrt(last));
+a=a/10;
+}
+}
+
+
+
+5.
+#include<stdio.h>
+int main()
+{
+int a,key;
+printf("Enter the number of elements\n");
+scanf("%d",&a);
+int b[100],i;
+printf("Enter the elements\n");
+for(i=0;i<a;i++)
+{
+scanf("%d",&b[i]);
+}
+printf("Enter the element in the list");
+scanf("%d",&key);
+for(i=0;i<a;i++)
+{
+if(b[i]==key)
+{
+int k;
+for(k=0;k<=i;k++)
+{
+printf("!");
+}
+printf("\t");
+}
+}
+}
+
+
+
+6.
+#include<stdio.h>
+int main()
+{
+char a[100];
+int i,key;
+scanf("%[^\n]s",a);
+ for(i=0;a[i]!=' ';i++);
+for(key=i+1;a[key]!=' ';key++)
+{
+if(a[key]>=97 && a[key]<=122)
+{
+a[key]=a[key]-32;
+printf("%c",a[key]);
+}
+else
+{
+printf("%c",a[key]);
+}
+}
+}
+
+
+
+7. #include<stdio.h>
+int main()
+{
+int a=0,b=1,c;
+int d[100];
+d[a]=0;
+d[b]=1;
+printf("Enter the number of elements to be printed");
+int k=2,n,i;
+scanf("%d",&n);
+for(i=2;i<n;i++)
+{
+c=a+b;
+d[k]=c;
+a=b;
+b=c;
+k++;
+}
+for(i=k-1;i>=0;i--)
+{
+printf("%d",d[i]);
+}
+}
+
+
+
+8. #include<stdio.h>
+#include<math.h>
+int main()
+{
+int a,b,i,k,sum=0,flag=0;
+printf("Enter the start and end number:\n");
+scanf("%d %d",&a,&b);
+for(i=a;i<=b;i++)
+{
+for(k=2;k<=sqrt(i);k++)
+{
+if(i%k==0)
+{
+flag=0;
+break;
+}
+else
+{
+flag=1;
+}
+}
+if(flag==1)
+{
+sum++;
+}
+}
+printf("Sum:%d",sum);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PART B
+1.
+
+#include<stdio.h>
+#define MAX 5
+void push(int);
+void pop();
+void display();
+int top=-1;
+int stack[MAX];
+int main()
+{
+push(10);
+push(20);
+push(30);
+push(40);
+printf("added elements:\n");
+display();
+pop();
+pop();
+printf("Deleted elements\n");
+display();
+return 0;
+}
+void push(int n)
+{
+if(top==MAX-1)
+{
+printf("The stack if full\n");
+return;
+}
+else
+{
+ top++;
+ stack[top]=n;
+}
+}
+void pop()
+{
+int item;
+if(top==-1)
+{
+printf("The stack is Empty\n");
+return;
+}
+else
+{
+item=stack[top];
+top--;
+}
+}
+void display()
+{
+int i;
+for(i=0;i<=top;i++)
+{
+printf("%d\n",stack[i]);
+}
+}
+
+
+
+
+2.
+#include<stdio.h>
+#include<stdlib.h>
+void dequeue();
+void enqueue();
+void display();
+# define MAX 10
+int stack[MAX];
+int front=-1; int rear=-1;
+int main()
+{
+int choice;
+while(choice!=4)
+{
+printf("\n1. Insert\n");
+printf("\n2. Delete\n");
+printf("\n3. Dispaly\n");
+printf("\n4. Exit\n");
+printf("\n Select any one option");
+scanf("%d",&choice);
+switch(choice)
+{
+case 1:enqueue();
+break;
+case 2:dequeue();
+break;
+case 3:display();
+break;
+case 4:exit(0);
+break;
+default:
+printf("Enter number is in valid");
+break;
+}
+}
+}
+void enqueue()
+{
+int num;
+if(rear==MAX-1)
+{
+printf("The stack if overflow");
+}
+if(front==-1 && rear==-1)
+{
+front=0;
+rear=0;
+}
+else
+{
+rear=rear+1;
+}
+printf("Enter the number\n");
+scanf("%d",&num);
+stack[rear]=num;
+}
+void dequeue()
+{
+int num;
+if(front==-1 ||front>rear)
+{
+printf("The stack if underflow");
+}
+else
+{
+ num=stack[rear];
+if(front==rear)
+{
+front=-1;
+rear=-1;
+}
+else
+{
+front=front+1;
+}
+}
+}
+void display()
+{
+if(rear==-1)
+{
+printf(" The stack is empty");
+}
+else{
+int i;
+for(i=front;i<=rear;i++)
+{
+printf("%d",stack[i]);
+}
+}
+}
+
+
+
+
+
+
+3.
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main()
+{
+char a[100];
+int i,vowels=0,words=1,constant=0;
+printf("Enter the string:\n");
+scanf("%[^\n]s",a);
+strlwr(a);
+for(i=0;a[i]!='\0';i++)
+{
+if(a[i]==' ')
+{
+words++;
+}
+else if(a[i]=='a'||a[i]=='e'||a[i]=='i'||a[i]=='o'||a[i]=='u')
+{
+vowels++;
+}
+else
+{
+constant++;
+}
+}
+printf("Vowels:%d\t words:%d\t constant:%d\t",vowels,words,constant);
+}
+
+
+
+
+
+4.
+#include<stdio.h>
+int main()
+{
+int row, col,i,j,sum=0;
+int a[100][100];
+printf("Enter the number of rows and columns\n");
+scanf("%d%d",&row,&col);
+printf("Enter the elements");
+for(i=0;i<row;i++)
+{
+for(j=0;j<col;j++)
+{
+scanf("%d",&a[i][j]);
+}
+}
+for(i=0;i<row;i++)
+{
+for(j=0;j<col;j++)
+{
+if(!(i==0||i==row-1||j==0||j==col-1))
+{
+sum=sum+a[i][j];
+}
+}
+}
+printf("sum:%d",sum);
+}
+
+
+
+
+5.
+#include<iostream>
+using namespace std;
+float area(int r)
+{
+return(3.14*r*r);
+}
+int area(int l,float b)
+{
+return(l*b);
+}
+float area(float b, float h)
+{
+return(0.5*b*h);
+}
+int main()
+{
+int r,l;
+int a,d;
+float c,b;
+float h;
+cout<<"Enter the radius, bredth and legth";
+cin>>r;
+cin>>l>>b;
+cin>>h;
+a=area(r);
+d=area(l,b);
+c=area(b,h);
+cout<<a<<"/"<<d<<"/"<<c;
+}
+
+
+
+6.
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+char st[100];
+int i,count=0;
+printf("Eneter the string");
+scanf("%s",st);
+for(i=0;st[i]!='\0';i++)
+{
+if(st[i]=='a'||st[i]=='e'||st[i]=='i'||st[i]=='o'||st[i]=='u'||st[i]=='A'||st[i]=='E'||st[i]=='I'||
+st[i]=='O'||st[i]=='U')
+{
+if(st[i]>='a'&& st[i]<='z')
+{
+st[i]=st[i]-32;
+}
+else
+{
+st[i]=st[i]+32;
+}
+}
+}
+printf("%s",st);
+}
+
+7. #include<stdio.h>
+int main()
+{
+int i,j;
+char k='A';
+for(i=0;i<5;i++)
+{
+for(j=0;j<i;j++)
+{
+printf("%c",k++);
+}
+printf("\n");
+}
+}
+
+
